@@ -1,0 +1,79 @@
+/* Ridgeline Exteriors demo — theme + build-specific pieces (kit override pattern) */
+
+:root {
+  --bg: #fbf9f4;
+  --fg: #1b2733;
+  --muted: #5c6b7a;
+  --line: #e7e0d2;
+  --card: #f4efe4;
+  --accent: #b45309;
+  --accent-soft: #fbeedd;
+  --ok: #15803d;
+  --radius: 14px;
+  --radius-l: 22px;
+}
+
+/* --- Trust bar --------------------------------------------------- */
+.trustbar { display: flex; flex-wrap: wrap; gap: .6rem 2.2rem; align-items: center; justify-content: center; color: var(--muted); font-size: .95rem; font-weight: 600; }
+.trustbar span { display: inline-flex; align-items: center; gap: .45rem; }
+.trustbar .star { color: #d97706; }
+
+/* --- Photo blocks (CSS-drawn scenes, no external images) --------- */
+.photo { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; }
+.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.14), transparent 30%, rgba(0,0,0,.55)); }
+.photo .cap { position: absolute; left: .8rem; bottom: .7rem; z-index: 2; color: #fff; font-size: .82rem; font-weight: 700; text-shadow: 0 1px 8px rgba(0,0,0,.65); background: rgba(15,18,30,.38); padding: .16rem .55rem; border-radius: 999px; }
+.photo-siding { background:
+  radial-gradient(80% 60% at 75% 12%, rgba(255, 244, 214, .55), transparent 60%),
+  repeating-linear-gradient(0deg, #8fa3b8 0 16px, #8699ae 16px 32px); }
+.photo-deck { background:
+  radial-gradient(70% 55% at 20% 10%, rgba(255, 235, 205, .5), transparent 60%),
+  repeating-linear-gradient(90deg, #b98a5a 0 14px, #ab7d4f 14px 28px); }
+.photo-roof { background:
+  radial-gradient(75% 55% at 78% 8%, rgba(226, 232, 240, .5), transparent 60%),
+  repeating-linear-gradient(115deg, #3a4148 0 20px, #454d55 20px 40px); }
+.photo-window { background:
+  radial-gradient(60% 50% at 30% 15%, rgba(191, 219, 254, .55), transparent 65%),
+  repeating-linear-gradient(90deg, #6f7f8f 0 22px, #647484 22px 44px, #d9dee3 44px 47px); }
+
+/* --- Service cards ------------------------------------------------ */
+.service-card { display: flex; flex-direction: column; gap: .6rem; }
+.service-card .more { font-weight: 700; color: var(--accent); text-decoration: none; font-size: .92rem; }
+.service-card .more:hover { text-decoration: underline; }
+
+/* --- Testimonials --------------------------------------------------- */
+.testimonial { display: flex; flex-direction: column; justify-content: space-between; gap: .8rem; }
+.testimonial blockquote { margin: 0; font-size: 1.02rem; }
+.testimonial .who { color: var(--muted); font-size: .9rem; font-weight: 600; }
+
+/* --- Quote band ------------------------------------------------------ */
+.quote-band { background: var(--accent); color: #fff; border: 0; }
+.quote-band .container { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: clamp(2rem, 5vw, 3rem); }
+.quote-band .muted { color: rgba(255, 255, 255, .82); }
+.quote-band .btn-primary { background: #fff; color: var(--accent); }
+
+/* --- Phone button / nav ----------------------------------------------- */
+.btn-phone { border-color: var(--accent); color: var(--accent); background: transparent; }
+
+/* --- Contact page ------------------------------------------------------ */
+.contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: start; }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+.form-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-l); padding: 1.6rem; box-shadow: var(--shadow); }
+.info-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-l); padding: 1.6rem; display: grid; gap: 1rem; }
+.info-row { display: flex; gap: .7rem; align-items: flex-start; font-size: .96rem; }
+.info-row strong { display: block; }
+.map-ph { border-radius: var(--radius); border: 1px solid var(--line); aspect-ratio: 16 / 9; background:
+  linear-gradient(135deg, rgba(180, 83, 9, .08), rgba(27, 39, 51, .06)),
+  repeating-linear-gradient(0deg, #eee7d9 0 28px, #e9e1d2 28px 56px),
+  repeating-linear-gradient(90deg, #eee7d9 0 28px, #e9e1d2 28px 56px); position: relative; overflow: hidden; }
+.map-ph::before { content: ""; position: absolute; left: 42%; top: 30%; width: 16px; height: 16px; border-radius: 999px 999px 999px 0; background: var(--accent); transform: rotate(-45deg); box-shadow: 0 6px 14px rgba(0,0,0,.2); }
+
+/* --- Process steps ------------------------------------------------------ */
+.process { display: grid; gap: 1.2rem; }
+.process .row { display: flex; gap: 1rem; align-items: flex-start; }
+
+/* --- Check lists / chips -------------------------------------------------- */
+.checks { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .5rem; font-size: .98rem; color: var(--muted); }
+.checks li::before { content: "\2713"; color: var(--ok); font-weight: 700; margin-right: .5rem; }
+.chip-row { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1.5rem 0 2rem; }
+.chip { display: inline-block; padding: .4rem .9rem; border: 1px solid var(--line); border-radius: 999px; font-size: .88rem; color: var(--muted); background: var(--bg); }
+.chip.active { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); font-weight: 700; }
